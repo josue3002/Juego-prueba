@@ -8,6 +8,13 @@ c.fillRect(0, 0, canvas.width, canvas.height);
 
 const gravity = 0.7
 
+const background = new Sprite({
+    position: {
+        x: 0,
+        y: 0,
+    },
+    imageSrc: "../Assets/background/background.png"
+})
 const player = new Fighter({
     position: {
         x: 0,
@@ -100,6 +107,7 @@ function animate () {
     window.requestAnimationFrame(animate)
     c.fillStyle = "black"
     c.fillRect(0, 0, canvas.width, canvas.height)
+    background.update()
     player.update()
     enemy.update()
 
@@ -167,7 +175,7 @@ window.addEventListener("keydown", (event) => {
         case "w":
         player.velocity.y = -15
         break
-        case " ":
+        case "s":
         player.attack()
         break
         

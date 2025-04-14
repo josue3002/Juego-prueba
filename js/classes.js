@@ -1,11 +1,15 @@
 class Sprite {
-    constructor({ position }) {
+    constructor({ position, imageSrc }) {
         this.position = position
-        this.width = 50
-        this.height = 150
+        this.width = 1024
+        this.height = 576
+        this.image = new Image()
+        this.image.src = imageSrc
     }
 
-    draw() {}
+    draw() {
+        c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
+    }
 
     update() {
         this.draw()
@@ -15,8 +19,8 @@ class Sprite {
 class Fighter {
     constructor({ position, velocity, color = "red", offset }) {
         this.position = position
-        this.width = 50
         this.velocity = velocity
+        this.width = 50
         this.height = 150
         this.lastKey
         this.attackBox = {
